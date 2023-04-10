@@ -5,8 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">{{ __('Dashboard') }}
+                    <a href="{{route('task.create')}}" class="btn btn-info">Crear Tarea</a>
+                    <a href="{{route('task.index')}}" class="btn btn-info">Listado de Tareas</a>
+                </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
