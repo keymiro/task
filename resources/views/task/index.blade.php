@@ -17,6 +17,7 @@
                             <th scope="col">Fecha Inicio</th>
                             <th scope="col">Fecha Culminación</th>
                             <th scope="col">Creado Por</th>
+                            <th scope="col">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,15 @@
                                 <td>{{$task->start}}</td>
                                 <td>{{$task->end}}</td>
                                 <td>{{$task->user->name}}</td>
+                                <td>
+                                    <a href="{{ route('task.edit', $task)}}">Editar</a>
+                                    <form action="{{route('task.destroy', $task)}}" method="post">
+                                        @csrf @method('DELETE')
+                                        <button onclick="return confirm('Esta seguro de eliminar este registro ?')">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
